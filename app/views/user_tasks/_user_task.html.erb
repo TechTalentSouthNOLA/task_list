@@ -3,10 +3,7 @@
     <em><%= user_task.due.stamp('Thursday, January 1, 2015') %></em>
   </p>
   <p>
-    <%= user_task.description %>
-  </p>
-  <p>
-    <%= link_to 'Edit', edit_user_task_path(user_task), remote: true %>
-    <%= link_to 'Destroy', user_task, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to fa_icon('square-o', text: user_task.description), user_task, remote: true, method: :delete, data: { confirm: 'Are you sure?' }, class: 'task-item' %>
+    <%= link_to fa_icon('pencil', text: 'Edit'), edit_user_task_path(user_task), remote: true, class: 'edit-task' %>
   </p>
 </div>

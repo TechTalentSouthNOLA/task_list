@@ -1,6 +1,6 @@
 class UserTasksController < ApplicationController
   before_action :set_user_task, only: [:show, :edit, :update, :destroy]
-  before_action :set_all_tasks, only: [:index, :create]
+  before_action :set_all_tasks, only: [:index, :create, :update]
 
   # GET /user_tasks
   # GET /user_tasks.json
@@ -45,9 +45,11 @@ class UserTasksController < ApplicationController
     respond_to do |format|
       if @user_task.update(user_task_params)
         format.html { redirect_to @user_task, notice: 'User task was successfully updated.' }
+        format.js {}
         format.json { render :show, status: :ok, location: @user_task }
       else
         format.html { render :edit }
+        format.js { render :edit }
         format.json { render json: @user_task.errors, status: :unprocessable_entity }
       end
     end
@@ -65,7 +67,7 @@ class UserTasksController < ApplicationController
 
   private
     def set_all_tasks
-      @user_tasks = UserTask.all
+      @user_tasks = UserTask.order(:due)
     end
 
     # Use callbacks to share common setup or constraints between actions.

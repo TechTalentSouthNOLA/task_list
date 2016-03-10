@@ -1,6 +1,6 @@
 <div class="well">
   <p class="pull-right">
-    <%= user_task.due %>
+    <em><%= user_task.due.stamp('Thursday, January 1, 2015') %></em>
   </p>
   <p>
     <%= user_task.description %>

@@ -2,7 +2,7 @@
 
 <h1>My Todo List</h1>
 
-<%= link_to 'New User task', new_user_task_path, remote: true %>
+<%= link_to fa_icon('plus', text: 'Add Task'), new_user_task_path, remote: true, class: 'btn btn-primary' %>
 <div id="task-form"></div>
 
 <div id="tasks">

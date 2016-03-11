@@ -2,11 +2,16 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :description, placeholder: "Make groceries." %>
-    <%= f.input :due, as: :string, placeholder: "Today!" %>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= f.input :description, placeholder: "Make groceries." %>
+    </div>
+    <div class="col-sm-3">
+      <%= f.input :due, as: :string, placeholder: "Today!" %>
+    </div>
+    <div class="col-sm-3">
+      <%= f.button :submit, "Save", class: 'btn btn-block btn-success' %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
   </div>
 <% end %>
